@@ -1,6 +1,6 @@
 ![image](images/microchip.jpg) 
 
-## %repoDescritpion%
+## DSPIC33CK LVMC X2CSCOPE BLINKY
 
 Board Image if any.
 
