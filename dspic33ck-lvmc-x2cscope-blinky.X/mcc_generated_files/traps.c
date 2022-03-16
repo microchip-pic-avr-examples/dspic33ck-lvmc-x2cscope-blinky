@@ -14,11 +14,11 @@
   @Description:
     This source file provides implementations for PIC24 / dsPIC33 / PIC32MM MCUs traps.
     Generation Information : 
-        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.169.0
+        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.171.1
         Device            :  dsPIC33CK256MP508
     The generated drivers are tested against the following:
-        Compiler          :  XC16 v1.50
-        MPLAB             :  MPLAB X v5.40
+        Compiler          :  XC16 v1.70
+        MPLAB             :  MPLAB X v5.50
 */
 /*
     (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -136,18 +136,22 @@ void ERROR_HANDLER _SoftTrapError(void)
       TRAPS_halt_on_error(TRAPS_NVM_ERR);
     }
 
+#ifdef _DMT
     if(INTCON3bits.DMT)
     {
       INTCON3bits.DMT = 0;  //Clear the trap flag
       TRAPS_halt_on_error(TRAPS_DMT_ERR);
     }
 
+#endif
+#ifdef _DAE
     if(INTCON3bits.DAE)
     {
       INTCON3bits.DAE = 0;  //Clear the trap flag
       TRAPS_halt_on_error(TRAPS_DAE_ERR);
     }
 
+#endif
     if(INTCON3bits.DOOVR)
     {
       INTCON3bits.DOOVR = 0;  //Clear the trap flag
