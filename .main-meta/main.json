@@ -36,20 +36,17 @@
       },
 	  "peripherals":[
          "GPIO",
-         "ADC",
          "TMR",
          "UART"
       ],
       "keywords":[
          "GPIO",
          "UART",
-         "Blinky",
-         "HelloWorld",
-         "X2Cscope",
-         "scope",
+         "TMR1",
+         "MCC Classic",
          "Curiosity",
-         "dsPIC33C",
-         "MCC"
+         "dsPIC33",
+         "Periodic Interrupts"
 
       ]
    }
